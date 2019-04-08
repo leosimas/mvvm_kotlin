@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.leosimas.mvvm.extentions.showToastShort
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         this.afterViews()
-
     }
 
     private fun afterViews() {
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.getToastMessage().observe(this, Observer {
             Log.d(TAG, "observe toast: $it")
-//            AppUtils.showToastShort(MainActivity.this, it);
+            this.showToastShort(it)
         })
     }
 
